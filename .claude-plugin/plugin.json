@@ -1,0 +1,22 @@
+{
+  "name": "caura",
+  "displayName": "Caura",
+  "version": "0.1.0",
+  "description": "Shared, governed memory for your agents: recall what your team already decided, follow its rules, and save outcomes so the next session starts informed.",
+  "author": {
+    "name": "Caura",
+    "url": "https://caura.ai"
+  },
+  "homepage": "https://caura.ai",
+  "repository": "https://github.com/caura-ai/caura-claude-plugin",
+  "license": "Apache-2.0",
+  "privacyPolicyUrl": "https://caura.ai/legal/privacy/",
+  "termsOfServiceUrl": "https://caura.ai/legal/terms/",
+  "keywords": [
+    "memory",
+    "team-memory",
+    "agents",
+    "governance",
+    "mcp"
+  ]
+}
