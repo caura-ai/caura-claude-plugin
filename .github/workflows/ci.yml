@@ -1,0 +1,54 @@
+name: Plugin CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  plugin:
+    name: Plugin CI
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      # Claude Code's own validator: manifest, .mcp.json, skills and commands.
+      # Pinned; it needs no sign-in. Bump deliberately, like any dependency.
+      - name: Validate the plugin
+        run: |
+          npm install --global --no-fund --no-audit @anthropic-ai/claude-code@2.1.318
+          mkdir -p "$RUNNER_TEMP/home"
+          HOME="$RUNNER_TEMP/home" claude plugin validate .
+
+      # What Caura relies on: the connector is caura.ai over https, signs in
+      # with OAuth (no key or secret in the plugin), and names itself so Caura
+      # can count connections made through the plugin.
+      - name: Check the connector
+        run: |
+          python3 - <<'PY'
+          import json, sys
+          servers = json.load(open(".mcp.json"))["mcpServers"]
+          caura = servers.get("caura") or sys.exit("no 'caura' server in .mcp.json")
+          problems = []
+          if caura.get("type") != "http":
+              problems.append("type must be http")
+          if caura.get("url") != "https://caura.ai/mcp":
+              problems.append("url must be https://caura.ai/mcp")
+          headers = caura.get("headers", {})
+          if headers.get("X-Caura-Source") != "claude-plugin":
+              problems.append("X-Caura-Source: claude-plugin header missing")
+          secretish = [h for h in headers if h.lower() in ("authorization", "x-api-key")]
+          if secretish:
+              problems.append(f"credentials in headers: {secretish}; OAuth signs in")
+          if "userConfig" in json.load(open(".claude-plugin/plugin.json")):
+              problems.append("plugin.json asks for user config; OAuth needs none")
+          if problems:
+              sys.exit("\n".join(problems))
+          print("connector OK")
+          PY

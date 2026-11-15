@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "caura": {
+      "type": "http",
+      "url": "https://caura.ai/mcp",
+      "headers": {
+        "X-Caura-Source": "claude-plugin"
+      }
+    }
+  }
+}
