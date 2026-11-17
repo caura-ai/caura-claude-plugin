@@ -22,7 +22,8 @@ session, or the next teammate, starts informed.
 The first time Claude uses Caura, your browser opens caura.ai to sign in. You
 choose the tenant this Claude works in and approve it; Claude gets its own
 agent, named after you (for example `claude-dana`). Revoke the connection any
-time in caura.ai under Settings > Organization > API Credentials.
+time in caura.ai under Connect › Keys, where it is listed as "OAuth: Claude Code"
+or "OAuth: Claude". Changing your Caura password also ends it.
 
 ## Data
 
