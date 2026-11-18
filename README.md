@@ -11,13 +11,13 @@ session, or the next teammate, starts informed.
   recall, writing memories, team rules, documents and the entity graph.
 - **`caura-memory` skill**: tells Claude when to recall, what is worth saving,
   and how to treat recalled content.
-- **Commands**: `/caura:recall <topic>` and `/caura:remember <text>`.
+- **Commands**: `/caura-ai:recall <topic>` and `/caura-ai:remember <text>`.
 
 ## Set up
 
 1. Create a free account at [caura.ai](https://caura.ai).
 2. Install the plugin and connect the Caura connector.
-3. Ask Claude "what do we know about <a project>?" or run `/caura:recall`.
+3. Ask Claude "what do we know about <a project>?" or run `/caura-ai:recall`.
 
 The first time Claude uses Caura, your browser opens caura.ai to sign in. You
 choose the tenant this Claude works in and approve it; Claude gets its own
