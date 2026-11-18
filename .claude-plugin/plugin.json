@@ -9,7 +9,7 @@
   },
   "homepage": "https://caura.ai",
   "documentationUrl": "https://caura.ai/docs/integrations/claude-code",
-  "supportUrl": "mailto:cs@caura.ai",
+  "supportUrl": "https://github.com/caura-ai/caura-claude-plugin/issues",
   "repository": "https://github.com/caura-ai/caura-claude-plugin",
   "license": "Apache-2.0",
   "privacyPolicyUrl": "https://caura.ai/legal/privacy/",
