@@ -1,7 +1,7 @@
 {
   "name": "caura-ai",
   "displayName": "Caura.AI",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Shared, governed memory for your agents: recall what your team already decided, follow its rules, and save outcomes so the next session starts informed.",
   "author": {
     "name": "Caura Innovation Ltd",

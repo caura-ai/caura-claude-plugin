@@ -66,10 +66,11 @@ lesson that warns the next agent.
 ## Memories and documents
 
 - **Memories** are found by meaning: decisions, outcomes, lessons. Use
-  `caura_recall` and `caura_write`.
+  `caura_recall` and `caura_write`; read one by id with `caura_memory_read`.
 - **Documents** are records with a stable key, such as a customer, a config
-  or a checklist. Use `caura_doc` with a collection and id. Call
-  `caura_doc` with `op=list_collections` when you don't know what exists.
+  or a checklist. Read them with `caura_doc_read` (`op=read`, `query`,
+  `search` or `list_collections` when you don't know what exists), write with
+  `caura_doc_write`, and delete with `caura_doc_delete`.
 - **Entities** are people, projects and services in the team's graph. Fetch
   one with `caura_entity_get` using an id from an earlier recall.
 
